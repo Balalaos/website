@@ -1,7 +1,7 @@
 from flask import *
-from loan import MainPage, RegistrationForm
-from tic_tac_toe import TicTacToe
-from convertor import Currency_Convertor
+from scripts.loan import MainPage, RegistrationForm
+from scripts.tic_tac_toe import TicTacToe
+from scripts.convertor import Currency_Convertor
 from decouple import config
 
 app = Flask(__name__)
