@@ -32,7 +32,8 @@ class Currency_Convertor():
         app_id = config('CONVERTOR_APP_ID')
         
         # Specify the path to your JSON file
-        json_file_path = os.path.dirname(os.path.realpath(__file__)) + "\\include_files\\convertor\\all_currencies.json"
+        json_file_path = os.path.dirname(os.path.realpath(__file__)) 
+        json_file_path = json_file_path.replace("scripts", "include_files\\convertor\\all_currencies.json")
 
         # Open the JSON file for reading
         with open(json_file_path, "r") as json_file:
@@ -53,7 +54,7 @@ class Currency_Convertor():
                 money = (pos["askRate"]+pos["bidRate"])/2
                 data[pos["currencyPair"][:3]].update({pos["currencyPair"][3:]:round(money,7)})
                 data[pos["currencyPair"][3:]].update({pos["currencyPair"][:3]:round((1/money),7)})
-                
+        print(data) 
         #save data in cache
         return data
         
@@ -80,10 +81,14 @@ class Currency_Convertor():
 
     # This function convert entered by user amount from one currency to another
     def convert_currency(self, data):
+        message = ''
         try:
-            currency_rates = self.get_currency_rates()
+            currency_rates = self.get_currency_rates()  
         except:
             currency_rates = rates_dict
+            message = 'The saved currencies rates data was used'
+            
+            
         try:
             amount = float(data["amount"])
         except:
@@ -150,5 +155,5 @@ class Currency_Convertor():
         result["From_currency"] = From_currency
         result["To_currency"] = To_currency
         result["amount"] = amount
-        return result
+        return result, message
 

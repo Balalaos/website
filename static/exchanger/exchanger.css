@@ -60,3 +60,9 @@ td, th{
     border: 1px solid;
     padding: 7px;
 }
+
+.error_msg{
+    background-color: pink;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+}

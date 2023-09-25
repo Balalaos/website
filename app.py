@@ -5,7 +5,10 @@ from scripts.convertor import Currency_Convertor
 from decouple import config
 
 app = Flask(__name__)
-app_key = config('APP_SECRET_KEY')
+try:
+    app_key = config('APP_SECRET_KEY')
+except:
+    app_key = "asdfosdfawefkkoffgia42"
 app.secret_key = app_key
 tictactoe = TicTacToe()
 convertor = Currency_Convertor()
@@ -62,8 +65,8 @@ def exchanger():
     message = ''
     if request.method == 'POST':
         try:
-            data = convertor.convert_currency(request.form)
-            return render_template("exchanger/result.html", data = data)
+            data, message = convertor.convert_currency(request.form)
+            return render_template("exchanger/result.html", data = data, message=message)
         except convertor.Error as e:
             message = e
     return render_template("exchanger/exchanger.html", message = message)
