@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>All loans</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='loan/loan.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+</head>
+<body>
+	{% include 'header.html' %}
+	<section>
+		<div class="main_table">
+			<div class="app_block">
+				<h1>Your borrowed loans:</h1>
+				<p><a> Name: {{ data.username }}</a><br>	
+				<a> Id: {{data.id}}</a></p>
+				<p>You loaned total {{data.total_money}} euro. You should return {{data.amount}}</p>
+				<table style="width: 95%;">
+					<tr>
+						<th>
+							Loaned amount of money
+						</th>
+						<th>
+							Date of the loan
+						</th>
+						<th>
+							Return date
+						</th>
+					</tr>
+					{% for i in range(data.array_size) %}
+					<tr>
+						<td>
+							{{data.money[i]}}
+						</td>
+						<td>
+							{{data.date_start[i]}}
+						</td>
+						<td>
+							{{data.date_end[i]}}
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<p>
+					{% if data.blacklisted %}
+						<a style="font-weight: bold;">You are blacklisted! </a>
+					{% endif %}
+				</p>
+				<div class="btn"><a href="/loan-app">Main page</a></div>
+			</div>
+			<div class="description_block">
+				<h1>Description</h1>
+				<p>If the ID is found, the application shows the information about the borrower. All loaned money and all loans are shown
+					in the table with dates. Register and database are made this way so 2 same IDs can not be added to database. 
+					App also shows shows if user is blacklisted</p>
+			</div>
+		</div>
+	</section>
+	{% include 'footer.html' %}
+	
+	
+</body>
+</html>
+
+

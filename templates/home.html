@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+</head>
+<body>
+	{% include 'header.html' %}
+	<section>
+		<h1>My work</h1>
+		<p class="text_main">This website is created to show my abilities in web development.<br>Website is created using Python Flask, 
+			HTML, CSS and a bit Javascrypt. There you can find my works and projects. Website is still under developing and I will try to add 
+			all my projects here. Mostly I focus in Backend development, however I can deal with Frontend too.</p>
+
+		<p>
+			<a class="text_bold">If you like this does not hestitate to contact me using vova.shulzik@gmail.com</a>
+		</p>
+
+		<hr>
+		<h2>Last projects</h2>
+		<div class="project_grid">
+			<a href="/loan-app" class="img_wrap">
+				<img src="/static/files/home/loan.png" alt="Loan app">
+				<div class="content">
+					<div class="text">Loan app</div>
+				</div>
+			</a>
+			
+			<a href="/currency-exchanger" class="img_wrap">
+				<img src="/static/files/home/currency_converter.png" alt="Currency exchanger">
+				<div class="content">
+					<div class="text" style="top: -98px;">Currency exchanger</div>
+				</div>
+			</a>
+
+			<a href="/games/tic-tac-toe" class="img_wrap">
+				<img src="/static/files/home/tictactoe.png" alt="Tic Tac Toe">
+				<div class="content">
+					<div class="text">Tic Tac Toe</div>
+				</div>
+			</a>
+		</div>
+		
+	</section>
+	{% include 'footer.html' %}
+	
+	
+</body>
+</html>

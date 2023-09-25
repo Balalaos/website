@@ -1,0 +1,70 @@
+.text_main {
+    text-align: justify;
+    max-width: 50%;
+}
+
+.main_table{
+    display: grid;
+    grid-template-columns: 40% auto;
+}
+
+.left_table{
+    background-color: aqua;
+    padding: 10px 10px;
+}
+
+.right_table{
+    padding: 10px 20px;
+}
+
+.h2_class{
+    color: darkblue;
+}
+
+
+.container {
+    width: 100%;
+    background-color: #f2f2f2;
+}
+  
+.skills {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    left: 100px;
+    color: white;
+    background-color: darkblue;
+}
+
+.skills_text{
+    margin-bottom: 3px;
+    font-size: 18px;
+}
+
+.text{
+    
+    margin-right: 10px;
+}
+
+
+
+table, td {
+    width: 100%;
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 7px;
+}
+
+
+ul{
+    margin-top: 0;
+}
+
+.list_first{
+    padding-left: 23px;
+}
+
+object{
+    padding-left: 30px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About me</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+</head>
+<body>
+	{% include 'header.html' %}
+	<section>
+		<h1>Long story short</h1>
+		<p>My name is Vladimir Šulžik. I am from Estonia.
+			I completed my studies at Tallinn University of Technology, where I pursued a master degree in Computer and Systems Engineering. 
+			<br><br>
+			I have an experience with Python and C++. I also have some basic knowledge about C#, CSS, HTML, SQL and Java. 
+			I am confident that my desire to learn and self-development make me a strong part of your team. 
+			I am a quick learner, and I am always eager to stay up-to-date with the latest technologies and tools in the field. 
+			I am confident that my strong problem-solving skills, attention to detail, and ability to work in a team make me a 
+			valuable asset to your organization. I look forward to the opportunity to contribute my skills and experience to your team.
+		</p>
+		<h1 style="font-size: 36px;">
+			CV
+		</h1>
+		
+
+		<div class="main_table">
+			<div class="left_table">
+				
+				<h2>
+					My skills
+				</h2>
+
+				<p class="skills_text">Python</p>
+				<div class="container">
+					<div class="skills python" style="width: 70%;"><a class="skills text">Good</a></div>
+				</div>
+				
+				<p class="skills_text">C/C++</p>
+				<div class="container">
+					<div class="skills python" style="width: 70%;"><a class="skills text">Good</a></div>
+				</div>
+
+				<p class="skills_text">Autodesk</p>
+				<div class="container">
+					<div class="skills" style="width: 50%;"><a class="skills text">Average</a></div>
+				</div>
+
+				<p class="skills_text">HTML/CSS</p>
+				<div class="container">
+					<div class="skills html" style="width: 40%;"><a class="skills text">Fair</a></div>
+				</div>
+
+				<p class="skills_text">SQL</p>
+				<div class="container">
+					<div class="skills html" style="width: 40%;"><a class="skills text">Fair</a></div>
+				</div>
+
+				<p class="skills_text">Java/JavaScript</p>
+				<div class="container">
+					<div class="skills java" style="width: 20%;"><a class="skills text">Basic</a></div>
+				</div>
+
+				<p class="skills_text">C#</p>
+				<div class="container">
+					<div class="skills java" style="width: 20%;"><a class="skills text">Basic</a></div>
+				</div>
+
+				<br><br>
+				<h2>
+					Languages
+				</h2>
+
+				<p class="skills_text">Russian</p>
+				<div class="container">
+					<div class="skills native_l" style="width: 100%;"><a class="skills text">Native</a></div>
+				</div>
+
+				<p class="skills_text">English</p>
+				<div class="container">
+					<div class="skills fluent_l" style="width: 80%;"><a class="skills text">Fluent</a></div>
+				</div>
+
+				<p class="skills_text">Estonian</p>
+				<div class="container">
+					<div class="skills fluent_l" style="width: 80%;"><a class="skills text">Fluent</a></div>
+				</div>
+									
+			</div>
+			<div class="right_table">
+				<h2 class="h2_class">Education</h2>
+				<table>
+					<tr>
+						<td>
+							<a><b>Master of Science: Computer and Systems Engineering</b></a><br>
+							<a><i>Tallinn University of Technology - Tallinn</i></a><br>
+							<a>From 2020 to 2023</a>
+						</td>
+					</tr>
+					<td>
+						<a><b>Bachelor of Science: Mechatronics</b></a><br>
+						<a><i>Tallinn University of Technology - Tallinn</i></a><br>
+						<a>From 2016 to 2020</a>
+					</td>
+				</table>
+
+				<h2 class="h2_class">Work experience</h2>
+				<table>
+					<tr>
+						<td>
+							<a><b>Software Developer</b></a><br>
+							<a><i>Centre for biorobotics in Tallinn University of Technology</i></a><br>
+							<a>06/2022 - 12/2022</a><br><br>
+							<a class="list_first">Work description:</a>
+							<ul>
+								<li>Working on a project to create a miner's robot</li>
+								<li>Mapping using tactile whiskers development</li>
+								<li>SLAM system development in ROS, ROS2 environment</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a><b>Software Developer</b></a><br>
+							<a><i>Bosch Future Mobility Challenge</i></a><br>
+							<a>12/2021 – 05/2023</a><br><br>
+							<a class="list_first">Work description:</a>
+							<ul>
+								<li>Designing software system to control self-driving car on simulating road traffic track</li>
+								<li>Analyzing video image to find lines and road signs</li>
+								<li>Planning and developing controlling interfaces</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a><b>The Main Organizer of the International Tournament</b></a><br>
+							<a><i>Tallinn University of Technology</i></a><br>
+							<a>01/2019 - 03/2019</a><br><br>
+							<a class="list_first">Work description:</a>
+							<ul>
+								<li>Team management</li>
+								<li>Assistance to participants</li>
+								<li>Ensuring favorable event</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a><b>Process Engineer</b></a><br>
+							<a><i>BLRT Rekato</i></a><br>
+							<a>07/2018 - 08/2018</a><br><br>
+							<a class="list_first">Work description:</a>
+							<ul>
+								<li>Valve repair workshop management</li>
+								<li>Development of documentation and specifications to meet project requirements</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</section>
+	<h3 style="padding-left: 30px;">My full CV:</h3>
+	<object data="/static/files/about/Vladimir_Sulzik_CV.pdf" type="application/pdf" width="50%" height="500px">
+		<p>Unable to display PDF file. <a href="/static/files/about/Vladimir_Sulzik_CV.pdf">Download</a> instead.</p>
+	</object>
+	{% include 'footer.html' %}
+	
+	
+</body>
+</html>

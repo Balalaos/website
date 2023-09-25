@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Loan app</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='loan/loan.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+</head>
+<body>
+	{% include 'header.html' %}
+	<section>
+		<div class="main_table">
+			<div class="app_block">
+				<h1>Loan app</h1>
+				{% if message %}
+					<div class="error_msg">{{ message }}</div>
+				{% endif %}
+			   	<form method="post">
+					
+					<label for="id"><b>Check your loans:</b></label><br>
+					<input style="width: 70%;" id="id" name="id" type="text" pattern="\d{7}" 
+						placeholder="Enter Your 7 digit ID number" title="Please use your 7 digit ID" required>
+
+					<input type="submit" value="Search">
+				</form>
+			   <p><a>Do you want a new loan?</a>  <a href="/loan-app/registration">Make a new loan</a></p>
+			
+			</div>
+			<div class="description_block">
+				<h1>Description</h1>
+				<p>This is a loan app, where user can make a new loan or check the existed one. When the application is launched, the user 
+					sees the home pages. Here is an opportunity to find an existing loan or add a new one. To find it, you need to enter 
+					the ID number. It should have 7 numbers. If the entered number is not found, the application will show an error message.</p>
+
+				<ul>This is different IDs that are already in database. You can use them to see ohw search is working:
+					<li>For controling blaklisted IDs you can use these numbers: 6794009, 2325503, 4452728.</li>
+					<li>For controlling adding new loan for existing borrower you can check – 2646106 Mark Smith, 5504483 Emily Toomas. 
+					Adding another name for existing ID will show error message.</li>
+					<li>One user with same ID can not gain several loans in 24 hours. To check that try to add several loans to 
+						the same person in one day.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	{% include 'footer.html' %}
+	
+	
+</body>
+</html>

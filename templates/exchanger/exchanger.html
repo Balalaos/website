@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Currency exchanger app</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='exchanger/exchanger.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+</head>
+<body>
+	{% include 'header.html' %}
+	<section>
+		<div class="main_table">
+			<div class="app_block">
+				<h1 style="margin-bottom: 0px;">Currency exchanger</h1>
+				<p style="margin-bottom: 30px;">Available currencies: USD, EUR, GBP, NZD, CAD, AUD, CHF, NOK, SEK, CNH</p>
+				{% if message %}
+					<div class="error_msg">{{ message }}</div>
+				{% endif %}
+			   	<form method="post">
+					<label for="amount"><b>Amount:</b></label>
+					<input id="amount" name="amount" type="number" max="1000000" step="0.01" 
+						placeholder="Enter desired amount of money to change" required>
+
+					<label for="from_currency"><b>From currency:</b></label>
+					<input id="from_currency" name="from_currency" type="text" pattern="(USD|EUR|GBP|NZD|CAD|AUD|CHF|NOK|SEK|CNH)" 
+						placeholder="Enter from what currency you want to change (ex. EUR)" title="Enter correct currency" required>
+
+					<label for="to_currency"><b>To currency:</b></label>
+					<input id="to_currency" name="to_currency" type="text" pattern="(USD|EUR|GBP|NZD|CAD|AUD|CHF|NOK|SEK|CNH)" 
+						placeholder="Enter from what currency you want to change (ex. EUR)" title="Enter correct currency" required>
+
+					<input type="submit" value="Search">
+				</form>
+			
+			</div>
+			<div class="description_block">
+				<h1>Description</h1>
+				<p>This is an application for converting money from one currency to another. The transfer takes place through intermediary 
+					currency. The application's task is to find which intermediary currency is the most profitable for the user.
+				</p><p>
+					Also, after transferring money to the final currency, the final result is rounded down to the nearest cent. 
+					All excess remains as a profit for the company. The application also finds the best profit for the company.
+				</p><p>
+					To obtain data on current exchange rates, the API from SWEDBANK is used.
+				</p>
+				</ul>
+			</div>
+		</div>
+	</section>
+	{% include 'footer.html' %}
+	
+	
+</body>
+</html>

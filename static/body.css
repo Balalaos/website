@@ -1,0 +1,26 @@
+section{
+    background:#f2f2f2;
+    border-radius: 8px 8px 12px 12px;
+    color: #000000;
+    justify-items: start;
+    align-items: start;
+    padding: 20px;
+}
+
+.main_table{
+    display: grid;
+    grid-template-columns: 50% auto;
+}
+
+.app_block{
+    padding: 10px 20px;
+}
+
+.description_block{
+    background-color: aqua;
+    padding: 10px 10px;
+}
+
+li{
+    margin: 10px;
+}

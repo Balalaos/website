@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='loan/loan.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+</head>
+<body>
+	{% include 'header.html' %}
+	<section>
+		<div class="main_table">
+			<div class="app_block">
+				<h1 style="margin-bottom: 0px;">Register your loan</h1>
+				<p style="margin-bottom: 30px;">All fields are required to be filled</p>
+				{% if message %}
+					<div class="error_msg">{{ message }}</div>
+				{% endif %}
+			   	<form method="post">
+					<label for="username"><b>Name</b></label>
+					<input id="username" name="username" type="text" pattern="^[a-zA-Z0-9\s]+$"
+					placeholder="Use only letters and numbers" title="Enter only letters or numbers" required>
+
+					<label for="id"><b>ID</b></label>
+					<input id="id" name="id" type="text" pattern="\d{7}" 
+						placeholder="Enter Your 7 digit ID number" title="Enter 7 digits" required>
+
+					<label for="money"><b>Desired amount of money to loan</b></label>
+					<input id="money" name="money" type="number" max="1000000" step="0.01" placeholder="No more than 1000000" required>
+
+					<label for="date"><b>Returning date</b></label>
+					<p style="margin: 0px;">The date must be at least 90 days after the current date</p>
+					<input id="date" name="date" type="date" required>
+
+					<input type="submit" value="Ask for loan">
+				</form>
+			   <p><a>Do you want to check your loans?</a>  <a href="/loan-app">Check here</a></p>
+			
+			</div>
+			<div class="description_block">
+				<h1>Description</h1>
+				<a>This is a registration form for establishing a new loan. The application checks that all information entered correctly. If something is 
+					entered wrongly, the application tells you what the error is. After register the Show loans page will be shown to user.</a>
+					<ul>App follows this rules during registration:
+						<li>The ID must have 7 digits.</li>
+						<li>It is possible to use both letters and numbers for the name.</li>
+						<li>Loan can not be added for blacklisted borrower</li>
+						<li>App checks if an ID in use by another borrower. If same ID and borrower are exist
+							 in database, the new loan will be added for this borrower.</li>
+						<li>The date should be minimum of 90 days after today day.</li>
+						<li>The app does not allow you to make more than 1 loan request in 24 hours.</li>
+					</ul>
+			</div>
+		</div>
+	</section>
+	{% include 'footer.html' %}
+	
+	
+</body>
+</html>

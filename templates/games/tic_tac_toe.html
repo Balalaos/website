@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='games/tic_tac_toe.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+</head>
+<body>
+	{% include 'header.html' %}
+	<section>
+		<div class="main_table">
+			<div class="app_block">
+				<h1>Tic Tac Toe</h1>
+				{% if message %}
+					<h4 class="winner_msg">{{ message }}</h4>
+				{% endif %}
+				<form method="post">
+					<table>
+						<tr>
+							<td style="border-top: 0; border-left: 0;">
+								<input type="submit" value="{{board[0]}}" name="0" class="cell"/>
+							</td>
+							<td style="border-top: 0;">
+								<input type="submit" value="{{board[1]}}" name="1" class="cell"/>
+							</td>
+							<td style="border-top: 0; border-right: 0;">
+								<input type="submit" value="{{board[2]}}" name="2" class="cell"/>
+							</td>
+						</tr>
+						<tr>
+							<td style="border-left: 0;">
+								<input type="submit" value="{{board[3]}}" name="3" class="cell"/>
+							</td>
+							<td>
+								<input type="submit" value="{{board[4]}}" name="4" class="cell"/>
+							</td>
+							<td style="border-right: 0;">
+								<input type="submit" value="{{board[5]}}" name="5" class="cell"/>
+							</td>
+						</tr>
+						<tr>
+							<td style="border-bottom: 0; border-left: 0;">
+								<input type="submit" value="{{board[6]}}" name="6" class="cell"/>
+							</td>
+							<td style="border-bottom: 0;">
+								<input type="submit" value="{{board[7]}}" name="7" class="cell"/>
+							</td>
+							<td style="border-bottom: 0; border-right: 0;">
+								<input type="submit" value="{{board[8]}}" name="8" class="cell"/>
+							</td>
+						</tr>
+					</table>
+					<input type="submit" value="RESET" name="RESET" class="reset_button"/>
+				</form>
+			</div>
+			<div class="description_block">
+				<h1>Description</h1>
+				<p>This is the basic Tic Tac Toe game, which you can play with you friend. Press on the squares to add X or O.</p>
+				<p>P.S. Playing agianst computer is under development.</p>
+			</div>
+		</div>
+	</section>
+	{% include 'footer.html' %}
+	
+	
+</body>
+</html>
