@@ -43,6 +43,7 @@ class TicTacToe():
             if self.board[pos[0]] == self.board[pos[1]] == self.board[pos[2]] != "":
                 self.message = "Winner is player " + self.current_player
                 self.end_game = True
+                return
             
         tie = True
         for pos in self.board:

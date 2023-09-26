@@ -5,11 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>About me</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='main_pages/about.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
 </head>
 <body>
-	{% include 'header.html' %}
+	{% include 'footer_header/header.html' %}
 	<section>
 		<h1>Long story short</h1>
 		<p>My name is Vladimir Šulžik. I am from Estonia.
@@ -167,7 +167,7 @@
 	<object data="/static/files/about/Vladimir_Sulzik_CV.pdf" type="application/pdf" width="50%" height="500px">
 		<p>Unable to display PDF file. <a href="/static/files/about/Vladimir_Sulzik_CV.pdf">Download</a> instead.</p>
 	</object>
-	{% include 'footer.html' %}
+	{% include 'footer_header/footer.html' %}
 	
 	
 </body>

@@ -5,11 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Loan app</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='loan/loan.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='projects/loan/loan.css') }}">  
 	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
 </head>
 <body>
-	{% include 'header.html' %}
+	{% include 'footer_header/header.html' %}
 	<section>
 		<div class="main_table">
 			<div class="app_block">
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 	</section>
-	{% include 'footer.html' %}
+	{% include 'footer_header/footer.html' %}
 	
 	
 </body>
