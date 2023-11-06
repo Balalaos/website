@@ -1,0 +1,90 @@
+:root {
+    --cell-size: 35px;
+  }
+
+table{
+    margin-left: auto;
+    margin-right: auto; 
+    border-collapse: collapse;
+    border: 3px solid;
+}
+
+table caption{
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+td{
+    text-align: center;
+    border: 2px solid;
+    padding: 0px;
+}
+
+.td_letter{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    text-align: center;
+    border: 3px solid;
+    padding: 0px;
+}
+
+.td_white{
+    background-color: white;
+}
+
+.td_blue{
+    background-color: blue;
+}
+
+.td_black{
+    background-color: black;
+}
+
+.td_red{
+    background-color: red;
+}
+
+.cell:hover, td:hover{
+    background-color: #d7c1c1;
+}
+
+.cell{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: none;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+}
+
+.cell_blue{
+    background-color: blue;
+}
+
+.cell_black{
+    background-color: black;
+}
+
+.cell_red{
+    background-color: red;
+}
+
+.winner_msg{
+    background-color: lightgreen;
+    padding: 5px 5px;
+    margin-bottom: 5px;
+}
+
+.reset_button {
+    color: white;
+    background-color: darkblue;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 10px;
+}

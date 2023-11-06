@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Battleship</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='games/battleship.css') }}">  
+	<link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">  
+	<script>
+		letters = ["A","B","C","D","E","F","G","H"]
+	</script>
+</head>
+<body>
+	{% include 'footer_header/header.html' %}
+	<section>
+		<div class="main_table" style="grid-template-columns: 70% auto;">
+			<div class="app_block">
+				<h1>Battleship</h1>
+				{% if message %}
+					<h4 class="winner_msg">{{ message }}</h4>
+				{% endif %}
+				<div class="main_table">
+						
+					<table>
+						<caption>Your field</caption>
+						<tr>
+							<td class="td_letter"></td>
+
+							{% for j in range(10) %}
+							<td class="td_letter">
+								{{letters[j]}}
+							</td>
+							{% endfor %}
+						</tr>
+
+						{% for i in range(10) %}
+						<tr>
+							<td class="td_letter">{{i+1}}</td>
+							{% for j in range(10) %}
+								{% if board[i][j] == "X" %}
+									<td class="td_black"></td>
+								{% elif board[i][j] == "*" %}
+									<td class="td_red"></td>
+								{% elif board[i][j] == "O" %}
+									<td class="td_white"></td>
+								{% else %}
+									<td class="td_blue"></td>
+								{% endif %}
+							{% endfor %}
+						</tr>
+						{% endfor %}
+					</table>
+						
+					<form method="post">
+						<table>
+							<caption>Enemy field</caption>
+							<tr>
+								<td class="td_letter"></td>
+
+								{% for j in range(10) %}
+								<td class="td_letter">
+									{{letters[j]}}
+								</td>
+								{% endfor %}
+							</tr>
+
+							{% for i in range(10) %}
+							<tr>
+								<td class="td_letter">{{i+1}}</td>
+								{% for j in range(10) %}
+									{% if board_enemy[i][j] == "X" %}
+										<td class="td_black"><input type="submit" value="" name="{{i*10+j}}" class="cell cell_black"/></td>
+									{% elif board_enemy[i][j] == "*" %}
+										<td class="td_red"><input type="submit" value="" name="{{i*10+j}}" class="cell cell_red"/></td>
+									{% else %}
+										<td class="td_blue"><input type="submit" value="" name="{{i*10+j}}" class="cell cell_blue"/></td>
+									{% endif %}
+								{% endfor %}
+							</tr>
+							{% endfor %}
+						</table>
+					</form>
+				</div>
+				<form method="post"><input type="submit" value="RESET" name="RESET" class="reset_button"/></form>
+			</div>
+			<div class="description_block">
+				<h1>Description</h1>
+				<p>This is the basic Battleship game, which you can play against computer. Press on the squares on the enemy field to make your 
+					shoot and try to destroy all ships. There are one 4-square ship, two 3-square ship, three 2-square ship and four 1-square ship.</p>
+			</div>
+		</div>
+	</section>
+	{% include 'footer_header/footer.html' %}
+	
+	
+</body>
+</html>

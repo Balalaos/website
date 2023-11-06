@@ -60,6 +60,7 @@ class LoanDatabase():
         self.conn.close()
 
 
+
 # This class taking data from main page fields and controls if data correct and finds user in database.
 # It shows borrower data if user was found
 class MainPage():  
@@ -137,8 +138,6 @@ class MainPage():
         data['total_money']  = row[8]
         data['amount'] = row[9]
         return data
-
-
 
 
 

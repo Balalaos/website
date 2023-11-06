@@ -3,6 +3,7 @@ from scripts.loan import MainPage, RegistrationForm
 from scripts.tic_tac_toe import TicTacToe
 from scripts.convertor import Currency_Convertor
 from decouple import config
+from scripts.battleship import Battleship
 
 
 
@@ -14,6 +15,7 @@ except:
     app_key = "asdfosdfawefkkoffgia42"
 app.secret_key = app_key
 tictactoe = TicTacToe()
+battleship = Battleship()
 convertor = Currency_Convertor()
 
 
@@ -90,6 +92,7 @@ def exchanger():
 @app.route("/games/tic-tac-toe", methods=["GET", "POST"])
 def tic_tac_toe():
     board = tictactoe.get_board()
+    
     message = ''
     # reset field when page is downloaded
     if request.method == "GET":
@@ -100,8 +103,34 @@ def tic_tac_toe():
             board = tictactoe.reset()
         else:
             # This function takes entered field and checks if there winner or not
-            board, message = tictactoe.game(request.form)
+            board, message = tictactoe.game(request.form) 
     return render_template("games/tic_tac_toe.html", board=board, message=message)
+
+
+# This is general Battleship game. It can be played only against computer
+# TODO: improve computer intellect
+@app.route("/games/battleship", methods=["GET", "POST"])
+def battleship_game():
+    board, board_enemy = battleship.get_board()
+    letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    message = ''
+    # reset field when page is downloaded
+    if request.method == "GET":
+        board, board_enemy = battleship.reset()
+        board = battleship.make_field()
+        #board_enemy = battleship.auto_ships(board_enemy)
+    if request.method == 'POST':
+        # reset field when RESET button is pressed
+        if request.form.get("RESET"):
+            board, board_enemy = battleship.reset()
+            board = battleship.make_field()
+        else:
+            # This function takes entered field and checks if there winner or not
+            try:
+                board, board_enemy, message = battleship.game(request.form)
+            except battleship.Error as e:
+                message = e
+    return render_template("games/battleship.html", board=board, board_enemy=board_enemy, message=message, letters=letters)
 
     
 
