@@ -17,3 +17,6 @@ To obtain data on current exchange rates, the API from SWEDBANK is used. For usi
 
 ### Tic Tac Toe
 This is the basic Tic Tac Toe game, which you can play with you friend. Playing agianst computer is under development.
+
+### Battleship
+This is the basic Battleship game, which you can play against computer. Press on the squares on the enemy field to make your shoot and try to destroy all ships.
